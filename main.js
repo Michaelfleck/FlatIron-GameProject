@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // function to pull images
-    function pullRandomImages(){
-        .fetch()
-        .then()
-    }
+    // function pullRandomImages(){
+    //     .fetch()
+    //     .then()
+    // }
 
     pullRandomImages()
 
