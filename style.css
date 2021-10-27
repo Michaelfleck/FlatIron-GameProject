@@ -10,7 +10,7 @@
     padding: 268px;
     border: 5px solid gray;
     margin: 0;
-  }
+    }
 
 #memory{
     width: 1200px;
@@ -19,8 +19,33 @@
     margin: 0;
   }
 
+.box {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: white;
+  padding: 2px;
+}
 
+.end {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: rgb(65, 107, 243);
+  padding: 2px;
+}
 
-
+.board {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: rgb(65, 107, 243);
+  width: 170px;
+  height: 165px;
+  padding-left: 10px;
+}
 
 
