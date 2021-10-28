@@ -1,3 +1,28 @@
+body{
+  background-image: url(./img/oldschoolrepeat.png), url(.img/controller.png);
+  /* background-image: url(./img/playstation-pattern-colored.png); */
+  background-repeat: repeat, no-repeat;
+  background-attachment: fixed;
+  margin: 0 auto;
+  background-size:400px 300px;
+  /* background-size:400px 400px; */
+  width: 50%;
+}
+
+
+  h3 {
+    font-family: Helvetica;
+    font-size: 30px;
+    margin: auto;
+    width: auto;
+} 
+
+#container {
+  background-color: white;
+  box-shadow: 10px 5px 5px rgba(40, 39, 41, 0.5);
+}
+
+
 td {
   border : 2px solid#333;
   height: 100px;
@@ -11,11 +36,11 @@ td {
 
 table {
 border-collapse: collapse;
-position: absolute;
 left: 50%;
-margin-left: -155px;
-top: 50px;
+table-layout:fixed;
+margin: auto;
 }
+
 
 table tr:first-child td{
     border-top: 0;
@@ -28,6 +53,7 @@ table tr:last-child td{
 table tr td:first-child{
   border-left: 0;
 }
+
 
 table tr td:last-child{
   border-right: 0;
@@ -45,44 +71,48 @@ table tr td:last-child{
   padding-bottom: 50px;
   text-align: center;
   border-radius: 5px;
-  color: white;
+ 
   font-size: 2em;
 }
 
+
+
 #tictactoe{
-    width: 1200px;
-    padding: 268px;
-    border: 5px solid gray;
+    width: auto;
+    padding: 20px;
+    border-top: 3px solid black;
     margin: 0;
-  }
+    background-color: white; 
+    }
 
 #connectfour{
-    width: 1200px;
-    padding: 268px;
-    border: 5px solid gray;
+    width: auto;
+    padding: 20px;
+    border-top: 3px solid black;
     margin: 0;
+    background-color: white;
     }
 
 
 /* memory game CSS */
 #memory{
-    width: 1200px;
-    padding: 268px;
-    border: 5px solid gray;
+    width: auto;
+    padding: 20px;
+    border-top: 3px solid black;
     margin: 0;
+    background-color: white;
   }
 
-#grid-container {
+  .grid-container {
+    margin:0 auto;
     display: flex;
     flex-wrap: wrap;
-    height: 300px;
-    width: 400px;
-    border: 5px solid gray;
+    border: 5px solid gray;   
 }
 
 .box {
-  height: 15px;
-  width: 15px;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   display: inline-block;
   background-color: white;
@@ -90,8 +120,8 @@ table tr td:last-child{
 }
 
 .end {
-  height: 15px;
-  width: 15px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   display: inline-block;
   background-color: rgb(65, 107, 243);
@@ -99,14 +129,33 @@ table tr td:last-child{
 }
 
 .board {
+  margin: auto;
   display: flex;
   flex-direction: column-reverse;
   flex-wrap: wrap;
   justify-content: space-evenly;
   background-color: rgb(65, 107, 243);
-  width: 170px;
-  height: 165px;
+  width: 618px;
+  height: 600px;
   padding-left: 10px;
+
 }
 
+#start-connect {
+  margin: 0 auto;
+  display: block;
+}
 
+#player-display {
+  margin: auto;
+  width: 50%;
+  padding-bottom: 10px;
+}
+  
+#hover-over img {
+  height: 100px;
+  width: 100px;
+  display: block;
+  margin: auto;
+ }
+ 

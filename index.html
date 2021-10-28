@@ -7,21 +7,111 @@
 <body>
 <div id="sidebar"></div> 
 
-<div id="tictactoe">
+<div id="tictactoe" style="overflow:auto">
     <h3>Tic-Tac-Toe Game</h3>
     <p>Test your technical skills with Tic-Tac-Toe!</p>
+    <table>
+        <tr>
+            <td class="cell" id="0"></td>
+            <td class="cell" id="1"></td>
+            <td class="cell" id="2"></td>
+        </tr>
+      <tr>
+          <td class="cell" id="3"></td>
+          <td class="cell" id="4"></td>
+          <td class="cell" id="5"></td>
+      </tr>
+         <tr>
+          <td class="cell" id="6"></td>
+          <td class="cell" id="7"></td>
+          <td class="cell" id="8"></td>
+         </tr>
+      </table>
+      <div class="endgame">
+          <div class="text"></div>
+      </div>
+      <button onClick="startGame()">Replay</button>
+      
+      
+          
 </div>
 
 <div id="connectfour">
-    <h3>Connect Four Game</h3>
+    <h3>Four-in-a-Row</h3>
     <p>Who will be the lucky winner to get 4 in a row!</p>
-
+<div class="board">
+    <div class="end"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="end"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="end"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="end"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="end"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="end"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    
 </div>
+
+<br>
+<div id="player-display"></div>
+<button id='start-connect'>Play Game</button>
+</div>
+
 
 <div id="memory">
     <h3>Memory Game</h3>
+    <h3>Your score: <span id="result"></span></h3>
+
+    <div class="grid-container">
+
+
+</div> 
+<div id="hover-over">
+    <img src='./img/controller2.jpg'>
 </div>
 
+<script src="./JavaScript/tictactoe.js"></script>
+<script src="./JavaScript/memory.js"></script>
+<script src="./JavaScript/connectfour.js"></script>
 </body>
 
 </html>

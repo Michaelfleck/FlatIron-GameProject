@@ -11,25 +11,62 @@ let currentPlayer = 1;
 //const playerOneColor = "yellow";
 //const playerTwoColor = "red";
 const box = document.getElementsByClassName('box');
+const end = document.getElementsByClassName('end');
 //const playerAnnounce = document.createElement('h3')
 
+
+
+console.log(`Box length: ${box.length}`)
+console.log(`End length: ${end.length}`)
 
 //PLAY GAME BUTTON 
 //Could update code so that once pressed "Play Game"
 //turns into "Play Again" and rerolls first player.
     playGame.addEventListener('click', playOnlyIfUnclicked)
 
+    // console.log(Array.from(box));
+function createConnectBoard() {
+    for (let i=0; i<box.length; i++){
+        var circle = document.createElement('div')
+        var grid = document.querySelector('.box')
+        var test = Array.from(box);
+        // console.log(test[i])
+
+        
+        // grid.append(circle);
+        // console.log(grid)
+    }  
+}
+
+createConnectBoard()
+
     function playOnlyIfUnclicked() {
-        if (!playGamePressed) playGameOnce()};  
+        if (playGamePressed === false){
+            playGameOnce()
+            console.log("step: playOnlyIfUnclicked()")
+            // console.log(`Player: ${currentPlayer}`)
+            // console.log(`playGamePressed:${playGamePressed}`)
+        }
+        else if (playGamePressed === true){
+            alert('You already started a game!')
+        }
+            
+
+        
+    };  
  
     function playGameOnce() {
         //currentPlayer = (Math.floor(Math.random() * 2) + 1)
-        let playerStartText = document.createElement('h3')
+        
         playerDisplay.innerText = `Player ${currentPlayer} gets the first move`
-        playerDisplay.append(playerStartText)
         //need to prevent button from being clicked again
         playGamePressed = true;
-        playOnlyIfUnclicked();
+        //playOnlyIfUnclicked();
+        console.log("step: playGameOnce()")
+        // console.log(`Player: ${currentPlayer}`)
+
+        console.log("adding event listener, click, for changePlayerTurn")
+        gameBoard.addEventListener('click', changePlayerTurn)
     } 
     
     
@@ -43,7 +80,7 @@ const box = document.getElementsByClassName('box');
     //need to update so that player turn changes only after first turn
     //need to update so that click even happens ONLY when box node is clicked
     //gameBoard.addEventListener('click', playerTurn)
-    gameBoard.addEventListener('click', changePlayerTurn)
+    
     
     function playerTurn() {
         if (currentPlayer === 1) { 
@@ -54,12 +91,14 @@ const box = document.getElementsByClassName('box');
                 // { while (box[i].classList != 'end')              
                 box[i].style["background-color"] = "yellow";
                 // console.log(box + i)
+                console.log("step: playerTurn(pt.1)")
             }}
                 
         } else { 
             for (let i = 0; i < box.length; i++) {
                 box[i].onclick = () => {
                 box[i].style["background-color"] = "red";
+                console.log("step: playerTurn(pt.2)")
             }}
         }   
         
@@ -71,11 +110,12 @@ const box = document.getElementsByClassName('box');
             playerTurn();
             currentPlayer = 2;
             playerDisplay.innerText = 'Player 2\'s turn'
+            console.log("switching from player 1 to 2")
         } else {
             playerTurn();
             currentPlayer = 1;
             playerDisplay.innerText = 'Player 1\'s turn'
-            
+            console.log("switching from player 2 to 1")
         }
         
     } 
@@ -161,10 +201,25 @@ const box = document.getElementsByClassName('box');
 // [31, 25, 19, 13]
 // [38, 32, 26, 20]
 
+//////CODE FOR ADDITIONAL EVENT LISTENER
 
+const controller = document.getElementById('hover-over')
+controller.addEventListener('mouseover', hoverOverController)
 
+const pElement = document.createElement('p')
+function hoverOverController(e) {
+    e.preventDefault();
+    
+    controller.append(pElement)
+    pElement.innerText = 'Congratulations! You found a secret. It doesn\'t really DO anything, but you should be proud of yourself for finding it anyway.'
+    
+    controller.addEventListener('onmouseout', removeHover)
+    document.getElementById('hover-over').scrollIntoView();
+    
+    
+}
 
-
-
-
-
+function removeHover(e) {
+    e.preventDefault();
+    controller.remove(pElement)
+}

@@ -1,12 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // function to pull images
-    // function pullRandomImages(){
-    //     .fetch()
-    //     .then()
-    // }
+    const accessKey = 'NujQpAnNkVy7GW_Dx2XmJGcRy3uNSjgBG9KCVSPhAxc'
+    const randImgURL = 'https://api.unsplash.com/photos/'
+    function pullRandomImages(){
+        fetch(`${randImgURL}/?client_id=${accessKey}`)
+        .then(resp => resp.json())
+        .then(randomImg => {
+            console.log('Running pullRandomImages')
+            console.log(randomImg)
+        })
+            
+    }
 
     pullRandomImages()
+    
 
     const memGameArray = [
         {
@@ -94,6 +102,7 @@ function createBoard() {
         // assigning attributes
         imgSquare.setAttribute('src', '../img/default.jpg')
         imgSquare.setAttribute('data-id', i)
+        
         // adding in alt to try and solve matching problem and add further verification
         imgSquare.setAttribute('alt', memGameArray[i].matchId)
 
@@ -101,6 +110,7 @@ function createBoard() {
         imgSquare.addEventListener('click', flipImage)
         // appending attributes to image tile
         var gridContainer = document.querySelector('.grid-container');
+        console.log(`imgSquare: ${imgSquare}`)
         gridContainer.append(imgSquare)
     }
 }
