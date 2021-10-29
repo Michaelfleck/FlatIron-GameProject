@@ -39,57 +39,56 @@
 <div id="connectfour">
     <h3>Four-in-a-Row</h3>
     <p>Who will be the lucky winner to get 4 in a row!</p>
-<div class="board">
-    <div class="end"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="end"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="end"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="end"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="end"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="end"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    
-</div>
+    <div class="board">
+        <div class="end"></div>
+        <div class="box" id ="1-7"></div>
+        <div class="box" id ="1-6"></div>
+        <div class="box" id ="1-5"></div>
+        <div class="box" id ="1-4"></div>
+        <div class="box" id ="1-3"></div>
+        <div class="box" id ="1-2"></div>
+        <div class="box" id ="1-1"></div>
+        <div class="end"></div>
+        <div class="box" id ="2-7"></div>
+        <div class="box" id ="2-6"></div>
+        <div class="box" id ="2-5"></div>
+        <div class="box" id ="2-4"></div>
+        <div class="box" id ="2-3"></div>
+        <div class="box" id ="2-2"></div>
+        <div class="box" id ="2-1"></div>
+        <div class="end"></div>
+        <div class="box" id ="3-7"></div>
+        <div class="box" id ="3-6"></div>
+        <div class="box" id ="3-5"></div>
+        <div class="box" id ="3-4"></div>
+        <div class="box" id ="3-3"></div>
+        <div class="box" id ="3-2"></div>
+        <div class="box" id ="3-1"></div>
+        <div class="end"></div>
+        <div class="box" id ="4-7"></div>
+        <div class="box" id ="4-6"></div>
+        <div class="box" id ="4-5"></div>
+        <div class="box" id ="4-4"></div>
+        <div class="box" id ="4-3"></div>
+        <div class="box" id ="4-2"></div>
+        <div class="box" id ="4-1"></div>
+        <div class="end"></div>
+        <div class="box" id ="5-7"></div>
+        <div class="box" id ="5-6"></div>
+        <div class="box" id ="5-5"></div>
+        <div class="box" id ="5-4"></div>
+        <div class="box" id ="5-3"></div>
+        <div class="box" id ="5-2"></div>
+        <div class="box" id ="5-1"></div>
+        <div class="end"></div>
+        <div class="box" id ="6-7"></div>
+        <div class="box" id ="6-6"></div>
+        <div class="box" id ="6-5"></div>
+        <div class="box" id ="6-4"></div>
+        <div class="box" id ="6-3"></div>
+        <div class="box" id ="6-2"></div>
+        <div class="box" id ="6-1"></div>       
+    </div>
 
 <br>
 <div id="player-display"></div>
@@ -103,15 +102,25 @@
 
     <div class="grid-container">
 
+</div>
 
-</div> 
-<div id="hover-over">
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <p>WELCOME TO CHILLIGANS ISLAND!</p>
+    </div>
+</div>
+
+<script src="./JavaScript/modal.js"></script>
+<div id="hover-over" onmouseover="showModal()">
     <img src='./img/controller2.jpg'>
 </div>
 
 <script src="./JavaScript/tictactoe.js"></script>
 <script src="./JavaScript/memory.js"></script>
 <script src="./JavaScript/connectfour.js"></script>
+
 </body>
 
 </html>

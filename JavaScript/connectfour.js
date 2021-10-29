@@ -22,54 +22,77 @@ console.log(`End length: ${end.length}`)
 //PLAY GAME BUTTON 
 //Could update code so that once pressed "Play Game"
 //turns into "Play Again" and rerolls first player.
-    playGame.addEventListener('click', playOnlyIfUnclicked)
+playGame.addEventListener('click', playOnlyIfUnclicked)
 
     // console.log(Array.from(box));
-function createConnectBoard() {
-    for (let i=0; i<box.length; i++){
-        var circle = document.createElement('div')
-        var grid = document.querySelector('.box')
-        var test = Array.from(box);
-        // console.log(test[i])
 
+function playOnlyIfUnclicked() {
+    if (playGamePressed === false){
+        playGameOnce()
+        console.log("step: playOnlyIfUnclicked()")
+        // console.log(`Player: ${currentPlayer}`)
+        // console.log(`playGamePressed:${playGamePressed}`)
+    }
+    else if (playGamePressed === true){
+        alert('You already started a game!')
+    }
         
-        // grid.append(circle);
-        // console.log(grid)
-    }  
+
+    
+};  
+ 
+function playGameOnce() {
+    //currentPlayer = (Math.floor(Math.random() * 2) + 1)
+    
+    playerDisplay.innerText = `Player ${currentPlayer} gets the first move`
+    //need to prevent button from being clicked again
+    playGamePressed = true;
+    //playOnlyIfUnclicked();
+    console.log("step: playGameOnce()")
+    // console.log(`Player: ${currentPlayer}`)
+
+    console.log("adding event listener, click, for changePlayerTurn")
+    addBoxOnClick()
+} 
+
+
+function changePlayerTurn() {
+    if (currentPlayer === 1) {
+        currentPlayer = 2;
+        playerDisplay.innerText = 'Player 2\'s turn'
+        console.log("switching from player 1 to 2")
+    } else {
+        currentPlayer = 1;
+        playerDisplay.innerText = 'Player 1\'s turn'
+        console.log("switching from player 2 to 1")
+    }
+    
+} 
+    
+    
+function addBoxOnClick() {
+     
+    for (let i = 0; i < box.length; i++) {
+        box[i].onclick = (e) => {
+            console.log(e);
+            const clickedBox = e.srcElement;
+            const row = parseInt(clickedBox.id.split("-")[0])
+            const column = parseInt(clickedBox.id.split("-")[1])
+            console.log(`${row}, ${column}`)
+            // if statement was moved inside for loop so player would not 
+            // 
+            if (currentPlayer===1){
+                clickedBox.style["background-color"] = "yellow";
+            }
+            else{
+                clickedBox.style["background-color"] = "red";
+            }
+            changePlayerTurn()
+        }
+    }      
 }
 
-createConnectBoard()
 
-    function playOnlyIfUnclicked() {
-        if (playGamePressed === false){
-            playGameOnce()
-            console.log("step: playOnlyIfUnclicked()")
-            // console.log(`Player: ${currentPlayer}`)
-            // console.log(`playGamePressed:${playGamePressed}`)
-        }
-        else if (playGamePressed === true){
-            alert('You already started a game!')
-        }
-            
-
-        
-    };  
- 
-    function playGameOnce() {
-        //currentPlayer = (Math.floor(Math.random() * 2) + 1)
-        
-        playerDisplay.innerText = `Player ${currentPlayer} gets the first move`
-        //need to prevent button from being clicked again
-        playGamePressed = true;
-        //playOnlyIfUnclicked();
-        console.log("step: playGameOnce()")
-        // console.log(`Player: ${currentPlayer}`)
-
-        console.log("adding event listener, click, for changePlayerTurn")
-        gameBoard.addEventListener('click', changePlayerTurn)
-    } 
-    
-    
     // function firstMove() {
     //     for (let i = 0; i < box.length; i++) {
     //         box[i].onclick = () => {
@@ -80,45 +103,6 @@ createConnectBoard()
     //need to update so that player turn changes only after first turn
     //need to update so that click even happens ONLY when box node is clicked
     //gameBoard.addEventListener('click', playerTurn)
-    
-    
-    function playerTurn() {
-        if (currentPlayer === 1) { 
-            for (let i = 0; i < box.length; i++) {
-                box[i].onclick = () => {
-                // do {
-                //     i -= 7;
-                // { while (box[i].classList != 'end')              
-                box[i].style["background-color"] = "yellow";
-                // console.log(box + i)
-                console.log("step: playerTurn(pt.1)")
-            }}
-                
-        } else { 
-            for (let i = 0; i < box.length; i++) {
-                box[i].onclick = () => {
-                box[i].style["background-color"] = "red";
-                console.log("step: playerTurn(pt.2)")
-            }}
-        }   
-        
-    }
-
-
-        function changePlayerTurn() {
-        if (currentPlayer === 1) {
-            playerTurn();
-            currentPlayer = 2;
-            playerDisplay.innerText = 'Player 2\'s turn'
-            console.log("switching from player 1 to 2")
-        } else {
-            playerTurn();
-            currentPlayer = 1;
-            playerDisplay.innerText = 'Player 1\'s turn'
-            console.log("switching from player 2 to 1")
-        }
-        
-    } 
 
     
 //if box[i] color = red for all, announce win
