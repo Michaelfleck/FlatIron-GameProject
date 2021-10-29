@@ -1,18 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // function to pull images
+    
     const accessKey = 'NujQpAnNkVy7GW_Dx2XmJGcRy3uNSjgBG9KCVSPhAxc'
     const randImgURL = 'https://api.unsplash.com/photos/random'
     const count = 6;
+    // function to pull images from API and promise chain
     function pullRandomImages(){
         fetch(`${randImgURL}?client_id=${accessKey}&count=${count}`)
         .then(resp => resp.json())
         .then(randomImgs => {
-            // console.log('Running pullRandomImages')
-            // console.log(randomImgs)
-            return randomImgs.map((img)=> img.urls.regular)
+            return randomImgs.map((img)=> img.urls.regular)   
         })
         .then(urls => {
+            console.log("Images pulled successfully from API")
             const memGameArray = [
                 {
                     name: 'blue',
@@ -77,11 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             ]
 
+            // randomizes placement of image tiles
             memGameArray.sort(() => 0.5 - Math.random())
 
             const grid = document.querySelector('.grid-container')
             const resultDisplay = document.querySelector('result')
 
+            // sets up empty arrays for comparison logic
             var imgChosen = [] 
             var imgChosenId = []
             var imgChosenAlt = []
@@ -107,20 +109,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     imgSquare.addEventListener('click', flipImage)
                     // appending attributes to image tile
                     var gridContainer = document.querySelector('.grid-container');
-                    console.log(`imgSquare: ${imgSquare}`)
+                    
                     gridContainer.append(imgSquare)
                 }
             }
 
             function flipImage(){
-                
-                
                 var dataId = this.getAttribute('data-id')
                 var matchId = this.getAttribute('alt')
                 var imgSrc = this.getAttribute('src')
 
                 var blankImg = './img/white.jpg'
-
+                // Does not allow user to select already matched/blank tile
                 if (blankImg == imgSrc){
                     alert("Please select a remaining image!")
                 }
@@ -130,11 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     imgChosenId.push(dataId)
                     imgChosenAlt.push(matchId)
                     this.setAttribute('src', memGameArray[dataId].img)
-                    console.log(`This is imgChosen: ${imgChosen}`)
-                    console.log(`This is imgChosenId: ${imgChosenId[0]}`)
-                    console.log(`This is imgChosenId: ${imgChosenId[1]}`)
-                    console.log(`--------------`)
-                    // console.log(dataId)
+
+
                     if (imgChosenId.length === 2) {
                         setTimeout(checkForMatch, 500)
                     }   
@@ -147,6 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const optionOne = imgChosenId[0];
                 const optionTwo = imgChosenId[1];
 
+                // Uses 2 factor verification for matches for both the image tiles
+                // matchId and its data-id
                 if (imgChosenAlt[0]===imgChosenAlt[1] && imgChosenId[0]!=imgChosenId[1]){
                     alert("You found a match!")
                     imgs[optionOne].setAttribute('src', './img/white.jpg')
@@ -155,12 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     wonArr.push(imgChosen)
                     score = score +1;
                     result.innerHTML = score
-                    }
-
-                    else {
-                        imgs[optionOne].setAttribute('src', './img/default.jpg')
-                        imgs[optionTwo].setAttribute('src', './img/default.jpg')
-                        alert("Incorrect! Please try again.")
+                }
+                // If no match is found. Reset to default image tile
+                else {
+                    imgs[optionOne].setAttribute('src', './img/default.jpg')
+                    imgs[optionTwo].setAttribute('src', './img/default.jpg')
+                    alert("Incorrect! Please try again.")
                 }
                 imgChosen = []
                 imgChosenId = []
